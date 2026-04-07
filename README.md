@@ -2,7 +2,7 @@
 
 **A production-grade Security Operations Center home lab featuring multi-platform endpoint monitoring, custom MITRE ATT&CK-mapped detection engineering, adversary simulation, and professional incident response documentation.**
 
-> Built by [Ahmed Salam](https://iamahmedsalam.com) — Aspiring AI-Augmented SOC Analyst | CompTIA Security+ | TryHackMe Top 2%
+> Built by [Ahmed Salam](https://iamahmedsalam.com) — AI-Augmented SOC Analyst | CompTIA Security+ | TryHackMe Top 2%
 
 ---
 
@@ -209,7 +209,7 @@ MITRE ATT&CK heatmap, custom rule overview, endpoint health dashboard, alert sev
 
 ## 👤 About
 
-**Ahmed Salam** — Aspiring AI-Augmented SOC Analyst
+**Ahmed Salam** — AI-Augmented SOC Analyst
 
 - 🏆 TryHackMe Top 2% Globally (132 rooms, 30 badges)
 - 🎓 CompTIA Security+ Certified
