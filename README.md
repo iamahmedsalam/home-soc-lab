@@ -26,8 +26,8 @@ This lab demonstrates end-to-end SOC analyst capabilities across five phases —
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│              VirtualBox Host-Only Network            │
-│                  192.168.56.0/24                     │
+│              VirtualBox Host-Only Network           │
+│                  192.168.56.0/24                    │
 │                                                     │
 │  ┌─────────────┐    ┌──────────────────────────┐    │
 │  │ Kali Linux  │    │     Wazuh Manager        │    │
@@ -38,12 +38,12 @@ This lab demonstrates end-to-end SOC analyst capabilities across five phases —
 │                                │                    │
 │                 ┌──────────────┴──────────────┐     │
 │                 │                             │     │
-│  ┌──────────────┴─────────┐  ┌───────────────┴──┐  │
-│  │     Windows 11         │  │ Ubuntu 24.04 LTS │  │
-│  │     192.168.56.103     │  │ 192.168.56.104   │  │
-│  │     Wazuh Agent 001    │  │ Wazuh Agent 002  │  │
-│  │     Sysmon v15.15      │  │ auditd           │  │
-│  └────────────────────────┘  └──────────────────┘  │
+│  ┌──────────────┴─────────┐  ┌───────────────┴──┐   │
+│  │     Windows 11         │  │ Ubuntu 24.04 LTS │   │
+│  │     192.168.56.103     │  │ 192.168.56.104   │   │
+│  │     Wazuh Agent 001    │  │ Wazuh Agent 002  │   │
+│  │     Sysmon v15.15      │  │ auditd           │   │
+│  └────────────────────────┘  └──────────────────┘   │
 └─────────────────────────────────────────────────────┘
 ```
 
