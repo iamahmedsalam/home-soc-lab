@@ -1,23 +1,14 @@
 # 🛡️ Home SOC Lab v2.0
 
-**A production-grade Security Operations Center home lab featuring 
-multi-platform endpoint monitoring, custom MITRE ATT&CK-mapped 
-detection engineering, adversary simulation, and professional 
-incident response documentation.**
+**A production-grade Security Operations Center home lab featuring multi-platform endpoint monitoring, custom MITRE ATT&CK-mapped detection engineering, adversary simulation, and professional incident response documentation.**
 
-> Built by [Ahmed Salam](https://iamahmedsalam.com) — 
-> Aspiring AI-Augmented SOC Analyst | CompTIA Security+ | 
-> TryHackMe Top 2%
+> Built by [Ahmed Salam](https://iamahmedsalam.com) — Aspiring AI-Augmented SOC Analyst | CompTIA Security+ | TryHackMe Top 2%
 
 ---
 
 ## 📋 Project Overview
 
-This lab demonstrates end-to-end SOC analyst capabilities across 
-five phases — from infrastructure deployment through detection 
-engineering, attack simulation, dashboard creation, and incident 
-response documentation. Every detection rule was written, tested, 
-and validated against real attack simulations.
+This lab demonstrates end-to-end SOC analyst capabilities across five phases — from infrastructure deployment through detection engineering, attack simulation, dashboard creation, and incident response documentation. Every detection rule was written, tested, and validated against real attack simulations.
 
 | | |
 |---|---|
@@ -32,26 +23,29 @@ and validated against real attack simulations.
 ---
 
 ## 🏗️ Lab Architecture
+
+```
 ┌─────────────────────────────────────────────────────┐
-│           VirtualBox Host-Only Network               │
-│              192.168.56.0/24                         │
-│                                                      │
-│  ┌─────────────┐      ┌──────────────────────────┐  │
-│  │ Kali Linux  │      │    Wazuh Manager         │  │
-│  │ 192.168.56.50│──── │    Ubuntu 24.04 LTS      │  │
-│  │ Attack VM   │      │    192.168.56.101         │  │
-│  └─────────────┘      │    Wazuh 4.14.4          │  │
-│                       └──────────┬───────────────┘  │
-│                                  │                   │
-│              ┌───────────────────┴──────────────┐   │
-│              │                                  │   │
-│  ┌───────────┴──────────┐  ┌───────────────────┐│  │
-│  │  Windows 11          │  │  Ubuntu 24.04 LTS ││  │
-│  │  192.168.56.103      │  │  192.168.56.104   ││  │
-│  │  Wazuh Agent 001     │  │  Wazuh Agent 002  ││  │
-│  │  Sysmon v15.15       │  │  auditd           ││  │
-│  └──────────────────────┘  └───────────────────┘│  │
+│              VirtualBox Host-Only Network            │
+│                  192.168.56.0/24                     │
+│                                                     │
+│  ┌─────────────┐    ┌──────────────────────────┐    │
+│  │ Kali Linux  │    │     Wazuh Manager        │    │
+│  │192.168.56.50│────│     Ubuntu 24.04 LTS     │    │
+│  │  Attack VM  │    │     192.168.56.101       │    │
+│  └─────────────┘    │     Wazuh 4.14.4         │    │
+│                     └──────────┬───────────────┘    │
+│                                │                    │
+│                 ┌──────────────┴──────────────┐     │
+│                 │                             │     │
+│  ┌──────────────┴─────────┐  ┌───────────────┴──┐  │
+│  │     Windows 11         │  │ Ubuntu 24.04 LTS │  │
+│  │     192.168.56.103     │  │ 192.168.56.104   │  │
+│  │     Wazuh Agent 001    │  │ Wazuh Agent 002  │  │
+│  │     Sysmon v15.15      │  │ auditd           │  │
+│  └────────────────────────┘  └──────────────────┘  │
 └─────────────────────────────────────────────────────┘
+```
 
 **All VMs use dual adapters:**
 - Adapter 1: Host-Only (192.168.56.0/24) — lab communication
@@ -60,33 +54,35 @@ and validated against real attack simulations.
 ---
 
 ## 📁 Repository Structure
+
+```
 home-soc-lab/
 ├── README.md
 ├── lab-architecture/
-│   └── network-diagram.md        # Full network topology & VM specs
+│   └── network-diagram.md          # Full network topology & VM specs
 ├── detection-rules/
-│   ├── local_rules.xml           # All 10 custom Wazuh rules
-│   └── rules-reference.md        # Rule breakdown & engineering notes
+│   ├── local_rules.xml             # All 10 custom Wazuh rules
+│   └── rules-reference.md          # Rule breakdown & engineering notes
 ├── attack-simulations/
-│   └── simulation-results.md     # Full detection matrix & findings
+│   └── simulation-results.md       # Full detection matrix & findings
 ├── incident-reports/
 │   ├── IR-001-powershell-encoded-command.md
 │   ├── IR-002-registry-run-key-persistence.md
 │   └── IR-003-windows-event-log-cleared.md
 ├── screenshots/
-│   ├── phase-a/                  # Lab setup & agent deployment
-│   ├── phase-b/                  # Detection rule creation
-│   ├── phase-c/                  # Attack simulations & alerts
-│   └── phase-d/                  # Custom dashboards
+│   ├── phase-a/                    # Lab setup & agent deployment
+│   ├── phase-b/                    # Detection rule creation
+│   ├── phase-c/                    # Attack simulations & alerts
+│   └── phase-d/                    # Custom dashboards
 └── docs/
-└── lessons-learned.md        # Key technical findings
+    └── lessons-learned.md          # Key technical findings
+```
 
 ---
 
 ## 🔍 Detection Rules — MITRE ATT&CK Coverage
 
-10 custom rules written from scratch, validated against live 
-attack simulations:
+10 custom rules written from scratch, validated against live attack simulations:
 
 | Rule ID | Technique | Description | Level |
 |---|---|---|---|
@@ -105,8 +101,7 @@ attack simulations:
 
 ## ⚔️ Attack Simulation Results
 
-Real attack simulations executed using Atomic Red Team against 
-the Windows 11 endpoint:
+Real attack simulations executed using Atomic Red Team against the Windows 11 endpoint:
 
 | Technique | Method | Result | Rule |
 |---|---|---|---|
@@ -121,8 +116,7 @@ the Windows 11 endpoint:
 | T1021.001 | RDP from Kali Linux | ⚠️ Blocked by Win11 Enterprise | 100009 |
 | T1083 | dir /s /b directory enumeration | ✅ DETECTED | 100010 |
 
-**Detection Rate: 8/10 (80%)** — 2 blocked by Windows 11 
-Enterprise hardening (documented as positive security findings)
+**Detection Rate: 8/10 (80%)** — 2 blocked by Windows 11 Enterprise hardening (documented as positive security findings)
 
 ---
 
@@ -136,37 +130,25 @@ Three professional incident reports written from real alert data:
 | [IR-002](incident-reports/IR-002-registry-run-key-persistence.md) | T1547.001 — Registry Persistence | High (Level 10) | 100004 |
 | [IR-003](incident-reports/IR-003-windows-event-log-cleared.md) | T1070.001 — Event Log Cleared | Critical (Level 14) | 100006 |
 
-Each report includes: Executive Summary, Timeline, Evidence, 
-Investigation, Root Cause, Containment, Lessons Learned, 
-MITRE ATT&CK Mapping, and full Artifacts table with exact 
-forensic values from real Wazuh alerts.
+Each report includes: Executive Summary, Timeline, Evidence, Investigation, Root Cause, Containment, Lessons Learned, MITRE ATT&CK Mapping, and full Artifacts table with exact forensic values from real Wazuh alerts.
 
 ---
 
 ## 🔑 Key Technical Findings
 
 **Detection Engineering:**
-- Wazuh v4.14.4 uses `sysmon_eid1_detections` group naming 
-  (not `sysmon_event1`) — discovered and corrected during 
-  rule validation
-- `if_sid` chaining is more reliable than `if_group` for 
-  rules building on existing Wazuh built-in detections
-- PCRE2 regex with `(?i)` case-insensitive flag prevents 
-  attacker evasion via case variation
+- Wazuh v4.14.4 uses `sysmon_eid1_detections` group naming (not `sysmon_event1`) — discovered and corrected during rule validation
+- `if_sid` chaining is more reliable than `if_group` for rules building on existing Wazuh built-in detections
+- PCRE2 regex with `(?i)` case-insensitive flag prevents attacker evasion via case variation
 
 **Windows 11 Enterprise Hardening Observed:**
-- Credential Guard + LSA Protection blocked all LSASS dump 
-  attempts even with admin rights and Defender disabled
-- RDP service binds successfully but port 3389 restricted 
-  in Enterprise Evaluation edition
-- Both findings documented as defence-in-depth working 
-  correctly — positive security indicators
+- Credential Guard + LSA Protection blocked all LSASS dump attempts even with admin rights and Defender disabled
+- RDP service binds successfully but port 3389 restricted in Enterprise Evaluation edition
+- Both findings documented as defence-in-depth working correctly — positive security indicators
 
 **SIEM Architecture Insight:**
-- Centralised log forwarding to Wazuh preserves all events 
-  before an attacker can clear local Windows logs
-- Demonstrated during T1070.001 simulation — log cleared 
-  locally but alert already captured in Elasticsearch index
+- Centralised log forwarding to Wazuh preserves all events before an attacker can clear local Windows logs
+- Demonstrated during T1070.001 simulation — log cleared locally but alert already captured in Elasticsearch index
 
 ---
 
@@ -190,45 +172,38 @@ forensic values from real Wazuh alerts.
 
 ## 📸 Screenshots
 
-All evidence screenshots organised by phase in the 
-[/screenshots](screenshots/) directory.
+All evidence screenshots organised by phase in the [/screenshots](screenshots/) directory.
 
 **Phase A — Lab Foundation:**
-Wazuh Manager deployment, agent enrollment, 
-Sysmon configuration, network setup
+Wazuh Manager deployment, agent enrollment, Sysmon configuration, network setup
 
 **Phase B — Detection Rules:**
-Custom rule authoring in nano, XML validation 
-with xmllint, rule loading verification
+Custom rule authoring in nano, XML validation with xmllint, rule loading verification
 
 **Phase C — Attack Simulations:**
-Live alerts firing for each detected technique, 
-expanded alert views showing MITRE mapping and 
-forensic field values
+Live alerts firing for each detected technique, expanded alert views showing MITRE mapping and forensic field values
 
 **Phase D — Custom Dashboards:**
-MITRE ATT&CK heatmap, custom rule overview, 
-endpoint health dashboard, alert severity distribution
+MITRE ATT&CK heatmap, custom rule overview, endpoint health dashboard, alert severity distribution
 
 ---
 
 ## 🗺️ Project Phases
 
--✅ Phase A — Lab Foundation
-4-VM VirtualBox environment, dual-adapter networking,
-Wazuh all-in-one deployment, multi-platform agent enrollment
--✅ Phase B — Detection Engineering
-10 custom MITRE ATT&CK-mapped rules written in Wazuh XML,
-PCRE2 regex pattern development, rule validation workflow
--✅ Phase C — Attack Simulation
-Atomic Red Team purple team exercise, 8/10 techniques
-detected, detection gaps documented with root cause analysis
--✅ Phase D — Custom Dashboards
-Threat overview, MITRE ATT&CK heatmap, endpoint health,
-alert severity distribution views
--✅ Phase E — Incident Response
-3 professional IR documents with exact forensic values
-from real Wazuh alerts — timestamps, hashes, process GUIDs
+- ✅ **Phase A — Lab Foundation**
+  4-VM VirtualBox environment, dual-adapter networking, Wazuh all-in-one deployment, multi-platform agent enrollment
+
+- ✅ **Phase B — Detection Engineering**
+  10 custom MITRE ATT&CK-mapped rules written in Wazuh XML, PCRE2 regex pattern development, rule validation workflow
+
+- ✅ **Phase C — Attack Simulation**
+  Atomic Red Team purple team exercise, 8/10 techniques detected, detection gaps documented with root cause analysis
+
+- ✅ **Phase D — Custom Dashboards**
+  Threat overview, MITRE ATT&CK heatmap, endpoint health, alert severity distribution views
+
+- ✅ **Phase E — Incident Response**
+  3 professional IR documents with exact forensic values from real Wazuh alerts — timestamps, hashes, process GUIDs
 
 ---
 
