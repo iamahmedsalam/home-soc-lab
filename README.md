@@ -1,7 +1,7 @@
 # 🛡️ Home SOC Lab v2.0
 
 **A production-grade Security Operations Center home lab featuring multi-platform endpoint monitoring, custom MITRE ATT&CK-mapped detection engineering, adversary simulation, and professional incident response documentation.**
-
+---
 > Built by [Ahmed Salam](https://iamahmedsalam.com) — AI-Augmented SOC Analyst | CompTIA Security+ | TryHackMe Top 2%
 <p align="center">
   <img src="screenshots/phase-d/__D1-custom-rules-dashboard.png" alt="Custom Detection Rules Dashboard" width="90%">
