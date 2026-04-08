@@ -3,7 +3,15 @@
 **A production-grade Security Operations Center home lab featuring multi-platform endpoint monitoring, custom MITRE ATT&CK-mapped detection engineering, adversary simulation, and professional incident response documentation.**
 
 > Built by [Ahmed Salam](https://iamahmedsalam.com) — AI-Augmented SOC Analyst | CompTIA Security+ | TryHackMe Top 2%
+<p align="center">
+  <img src="screenshots/phase-d/__D1-custom-rules-dashboard.png" alt="Custom Detection Rules Dashboard" width="90%">
+</p>
+<p align="center"><em>Custom detection rules firing in Wazuh — 10 MITRE ATT&CK-mapped rules with real alert data</em></p>
 
+<p align="center">
+  <img src="screenshots/phase-d/__D2-mitre-attack-heatmap.png" alt="MITRE ATT&CK Heatmap" width="90%">
+</p>
+<p align="center"><em>MITRE ATT&CK heatmap — 8 techniques detected via Atomic Red Team simulation</em></p>
 ---
 
 ## 📋 Project Overview
